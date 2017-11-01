@@ -26,14 +26,18 @@ def sample():
             # print(d)
             if d['DP'] != d['RP'] or d['DP'] != '':  # isDiscount == True
                 price = Price(discount_rate=int(d['DR']),
+                              discount_type="rate",
                               discount_price=int(d['DP']),
                               fixed_discount_price=0,
-                              regular_price=int(d['RP'])) \
+                              regular_price=int(d['RP']),
+                              is_discount=True) \
                     if d['DR'] != '' else \
                     Price(discount_rate=0,
+                          discount_type="amount",
                           discount_price=int(d['DP']),
                           fixed_discount_price=int(d['FP']),
-                          regular_price=int(d['RP']))
+                          regular_price=int(d['RP']),
+                          is_discount=True)
                 # readability.........
 
                 cd.add(CardCommerce(image_url=d['image'],
@@ -43,10 +47,11 @@ def sample():
                                     buttons=[Button(button_type="url", label=d['button_name'], data={"url": d['button_url']})]))
             else:  # isDiscount == False
                 price = Price(discount_rate=0,
+                              discount_type="",
                               discount_price=0,
                               fixed_discount_price=0,
-                              regular_price=int(d['RP']))
-
+                              regular_price=int(d['RP']),
+                              is_discount=False)
                 cd.add(CardCommerce(image_url=d['image'],
                                     title=d['title'],
                                     price=price,
