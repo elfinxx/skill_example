@@ -155,32 +155,32 @@ class ComplexEncoder(json.JSONEncoder):
         else:
             return json.JSONEncoder.default(self, obj)
 
-
-skill = SkillResponse("text")
-skill.add(Text("hi"))
-
-print(skill.repr_json())
-print(json.dumps(skill.repr_json(), cls=ComplexEncoder))
-
-cd = CardDeck()
-cd.add(CardImage(image_url="hell.jpg", title="title", description="desc", buttons=[Button("url", "label", {"url": "url_loc"})]))
-cd.add(CardImage(image_url="hell.jpg", title="title", description="desc", buttons=[Button("url", "label", {"url": "url_loc"})]))
-
-skill2 = SkillResponse("card.image")
-skill2.add(cd)
-
-print(json.dumps(skill2.repr_json(), cls=ComplexEncoder, sort_keys=True, indent=2))
-
-price = Price(regular_price=4950,
-              is_discount=True,
-              discount_price=2970,
-              discount_type="rate",
-              discount_rate=40)
-
-cd2 = CardDeck()
-cd2.add(CardCommerce(image_url="i", title="dd", price=price, link_url="", buttons=[Button("url", "label", {"url": "url_loc"})]))
-
-skill3 = SkillResponse("card.commerce")
-skill3.add(cd2)
-
-print(json.dumps(skill3.repr_json(), cls=ComplexEncoder, sort_keys=True, indent=2))
+#
+# skill = SkillResponse("text")
+# skill.add(Text("hi"))
+#
+# print(skill.repr_json())
+# print(json.dumps(skill.repr_json(), cls=ComplexEncoder))
+#
+# cd = CardDeck()
+# cd.add(CardImage(image_url="hell.jpg", title="title", description="desc", buttons=[Button("url", "label", {"url": "url_loc"})]))
+# cd.add(CardImage(image_url="hell.jpg", title="title", description="desc", buttons=[Button("url", "label", {"url": "url_loc"})]))
+#
+# skill2 = SkillResponse("card.image")
+# skill2.add(cd)
+#
+# print(json.dumps(skill2.repr_json(), cls=ComplexEncoder, sort_keys=True, indent=2))
+#
+# price = Price(regular_price=4950,
+#               is_discount=True,
+#               discount_price=2970,
+#               discount_type="rate",
+#               discount_rate=40)
+#
+# cd2 = CardDeck()
+# cd2.add(CardCommerce(image_url="i", title="dd", price=price, link_url="", buttons=[Button("url", "label", {"url": "url_loc"})]))
+#
+# skill3 = SkillResponse("card.commerce")
+# skill3.add(cd2)
+#
+# print(json.dumps(skill3.repr_json(), cls=ComplexEncoder, sort_keys=True, indent=2))
