@@ -128,27 +128,18 @@ class Price:
     def __init__(self,
                  regular_price,
                  discount_price,
-                 discount_type,
-                 is_discount=False,
                  discount_rate=0,
-                 fixed_discount_price=0,
-                 currency_unit="원"):
+                 fixed_discount_price=0):
         self.regularPrice = regular_price
-        self.isDiscount = is_discount
         self.discountPrice = discount_price
-        self.discountType = discount_type
         self.discountRate = discount_rate
         self.fixedDiscountPrice = fixed_discount_price
-        self.currencyUnit = currency_unit
 
     def repr_json(self):
         return dict(regularPrice=self.regularPrice,
-                    isDiscount=self.isDiscount,
                     discountPrice=self.discountPrice,
-                    discountType=self.discountType,
                     discountRate=self.discountRate,
-                    fixedDiscountPrice=self.fixedDiscountPrice,
-                    currencyUnit=self.currencyUnit)
+                    fixedDiscountPrice=self.fixedDiscountPrice)
 
 
 class ComplexEncoder(json.JSONEncoder):
