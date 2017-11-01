@@ -24,7 +24,7 @@ class SkillResponse:
             self.contents[0]["cards"] = param
 
         elif self.type == "card.commerce":
-            self.type = "card"
+            self.contents[0]["type"] = "card"
             self.contents[0]["cards"] = param
 
         elif self.type == "quickReplies":
