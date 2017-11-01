@@ -16,7 +16,7 @@ def hello_world():
     return 'Hell'
 
 
-@app.route('/sample')
+@app.route('/sample', methods=['POST'])
 def sample():
     skill = SkillResponse("card.commerce")
     cd = CardDeck()
@@ -64,4 +64,4 @@ def sample():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run('0.0.0.0')

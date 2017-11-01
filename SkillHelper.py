@@ -4,7 +4,7 @@ import json
 class SkillResponse:
     def __init__(self, response_type):
         self.type = response_type
-        self.contents = {"type": self.type}
+        self.contents = [{"type": self.type}]
         self.quickReplies = []
 
     def repr_json(self):
@@ -12,19 +12,19 @@ class SkillResponse:
 
     def add(self, param):
         if self.type == "text":
-            self.contents["text"] = param.text
+            self.contents[0]["text"] = param.text
 
         elif self.type == "image":
-            self.contents["image"] = param
+            self.contents[0]["image"] = param
 
         elif self.type == "card.text":
-            self.contents["cards"] = param
+            self.contents[0]["cards"] = param
 
         elif self.type == "card.image":
-            self.contents["cards"] = param
+            self.contents[0]["cards"] = param
 
         elif self.type == "card.commerce":
-            self.contents["cards"] = param
+            self.contents[0]["cards"] = param
 
         elif self.type == "quickReplies":
             self.quickReplies.append(param)
