@@ -42,7 +42,7 @@ def sample():
 
                 cd.add(CardCommerce(image_url=d['image'],
                                     title=d['title'],
-                                    price="",
+                                    price=price,
                                     link_url=d['button_url'],
                                     buttons=[Button(button_type="url", label=d['button_name'], data={"url": d['button_url']})]))
             else:  # isDiscount == False
